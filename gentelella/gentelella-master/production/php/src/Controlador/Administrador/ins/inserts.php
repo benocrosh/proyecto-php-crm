@@ -1,0 +1,51 @@
+<?php
+	$count=0;
+	$countto=0;
+	session_start();
+      if(!isset($_SESSION["admin"])){
+        header("location:../index.php");
+		      } else{
+		      	do{
+		      		$countto++;
+		      		if($countto==10){
+		      			echo "Error al ingresar información";
+		      			header("location:../index.php");
+		      			break;
+		      		}
+						      	if(isset($_POST["enviar_usuario"])){
+						require_once("../src/controlador/administrador/ins/insertar_usuario.php");
+						$count=1;
+						}
+								if(isset($_POST["enviar_carrera"])){
+						require_once("../src/controlador/administrador/ins/insertar_carrera.php");
+						$count=1;
+						}
+								if(isset($_POST["enviar_cliente"])){
+						require_once("../src/controlador/administrador/ins/insertar_cliente.php");
+						$count=1;
+						}	
+								if(isset($_POST["enviar_conductor"])){
+						require_once("../src/controlador/administrador/ins/insertar_conductor.php");
+						$count=1;
+						}
+								if(isset($_POST["enviar_direccion"])){
+						require_once("../src/controlador/administrador/ins/insertar_direccion.php");
+						$count=1;
+						}
+								if(isset($_POST["enviar_empresa"])){
+						require_once("../src/controlador/administrador/ins/insertar_empresa.php");
+						$count=1;
+						}
+								if(isset($_POST["enviar_local"])){
+						require_once("../src/controlador/administrador/ins/insertar_local.php");
+						$count=1;
+						}
+								if(isset($_POST["enviar_pasajeros"])){
+						require_once("../src/controlador/administrador/ins/insertar_pasajero.php");
+						$count=1;
+						}
+				}while($count==0);
+	}
+
+
+?>
